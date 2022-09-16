@@ -3,6 +3,13 @@ class Admin::ItemsController < ApplicationController
   end
 
   def new
+    @item = Item.new
+  end
+  
+  def create
+    @item = Item.new(item_params)
+    @item.save
+    redirct_to '/admin/items'
   end
 
   def show
@@ -11,3 +18,9 @@ class Admin::ItemsController < ApplicationController
   def edit
   end
 end
+
+private
+def item_params
+  params.require(:item).permit(:name,:introduction,:image,:genre,:price,:is_active)
+end
+
