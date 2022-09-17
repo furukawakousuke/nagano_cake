@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12">
       <h5 class="d-inline-flex bg-light mt-5 px-3 mb-5">ジャンル編集</h5>
-      <%= form_with model:@genre,url:admin_genre_path(@genre.id),method: :patch do |f| %>
+      <%= form_with model:@genre,url:admin _genre_path(@genre.id),method: :patch do |f| %>
       <label>ジャンル名</label>
       <%= f.text_field:name %>
       <%= f.submit "変更を保存" %>

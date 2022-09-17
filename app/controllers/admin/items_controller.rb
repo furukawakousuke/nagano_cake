@@ -1,5 +1,6 @@
 class Admin::ItemsController < ApplicationController
   def index
+    @items = Item.all
   end
 
   def new
@@ -9,7 +10,7 @@ class Admin::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.save
-    redirct_to '/admin/items'
+    redirect_to '/admin/items'
   end
 
   def show
@@ -21,6 +22,6 @@ end
 
 private
 def item_params
-  params.require(:item).permit(:name,:introduction,:image,:genre,:price,:is_active)
+  params.require(:item).permit(:name,:introduction,:image,:genre_id,:price,:is_active)
 end
 
