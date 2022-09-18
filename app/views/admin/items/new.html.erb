@@ -26,9 +26,9 @@
     </div>
     <div class="form-group mx-auto">
       <label>販売ステータス</label>
-      <%= f.radio_button :is_active, "sale" %>
+      <%= f.radio_button :is_active, "販売中" %>
       <%= f.label :is_active, "販売中" %>
-      <%= f.radio_button :is_active, "stop-selling" %>
+      <%= f.radio_button :is_active, "販売停止中" %>
       <%= f.label :is_active, "販売停止中" %>
     </div>
     <%= f.submit "新規登録",class:"btn btn-success" %>
