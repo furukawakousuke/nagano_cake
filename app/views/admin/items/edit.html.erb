@@ -1,15 +1,15 @@
 <div class="container">
   <div class="">
-    <div class=" mt-4 ml-5">
+    <div class=" mt-4 ml-5 pl-5">
     <h5 class="bg-light mb-5 d-inline-flex px-4 ml-2 ">商品編集</h5>
     <%= form_with model:@item,url:admin_item_path(@item.id),method: :patch do |f| %>
-    <div class=" form-group">
+    <div class=" form-group ml-5">
     <label class="ml-5 pl-5 mr-5 pr-5 mx-auto">商品画像</label>
     <%= f.file_field :image,placeholder:"ファイルを選択",accept:"image/*",class:"form-label col-4" %></br>
     </div>
     <div class="row form-group mt-2 mx-auto">
     <label class="ml-5 pl-5 mr-5">商品名</label>
-    <%= f.text_field :name,class:" form-control col-4 " %>
+    <%= f.text_field :name,class:" form-control col-4 ml-3" %>
     </div>
     <div class=" row form-group mt-2 mx-auto">
     <label class="ml-5 pl-5 mr-5 align-top" >商品説明</label>
@@ -17,11 +17,11 @@
     </div>
     <div class="row form-group mt-2 mx-auto">
       <label class="ml-5 pl-5 mr-5 ">ジャンル</label>
-      <%= f.select :genre_id,options_from_collection_for_select(Genre.all,:id,:name),class:"form-select col-4" %>
+      <%= f.select :genre_id,options_from_collection_for_select(Genre.all,:id,:name),class:"form-control col-4" %>
     </div>
     <div class="row form-group mt-2 mx-auto">
       <label class="ml-5 pl-5 mr-5 ">税抜価格</label>
-      <%= f.text_field :price,class:"form-control col-4" %>円
+      <%= f.text_field :price,class:"form-control col-4" %>　円
     </div>
     <div class="row form-group mt-2">
       <label class="ml-5 pl-5 mr-5">販売ステータス</label>
@@ -30,10 +30,11 @@
       <%= f.radio_button :is_active, "販売停止中" %>
       <%= f.label :is_active, "販売停止中" %>
     </div>
+    </div>
     <div class="row">
     <%= f.submit "変更を保存",class:"btn btn-success mx-auto" %>
     </div>
     <% end %>
-    </div>
+    
   </div>
 </div>

@@ -28,7 +28,7 @@
         
       </li>
       <li class="nav-item">
-       <%= link_to "商品一覧", 'admin/items',class:"nav-link text-white" %>
+       <%= link_to "商品一覧", admin_items_path,class:"nav-link text-white" %>
        
       </li>
       <li class="nav-item">
@@ -48,12 +48,13 @@
     
     <%= yield %>
     
-    <footer class="shadow-sm mt-5 h-50">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark h-100 mt-5">
+    <footer>
+      <div class="container">
+        <div class="row">
+      <p class="mx-auto"></p>
       
-      <p class="mx-auto text-info">Nagano Cake</p>
-        
-      </nav>
+        </div>
+      </div>
     </footer>
   </body>
 </html>

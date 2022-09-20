@@ -1,2 +1,26 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+<div class="container">
+<div class="row mt-5">
+ <%= render 'layouts/genre', genres: @genres %>
+ <div class="col-1"></div>
+ <div class="col-6 pt-3 mt-5">
+   <p class="border border-dark border-bold p-5">ようこそながのCAKEへ！<br>このサイトは、ケーキ販売のECサイトになります。<br>
+   会員だけでない方も商品の閲覧はできますが、<br>購入には会員登録が必要になります。</p>
+   
+   </div>
+</div>
+   <div class="row">
+   <div class="col-3"></div>
+    <div class="  ">
+   　<h5 class="font-weight-bold">新着商品</h5>
+   　<% @item.each do |item| %>
+   　<div class="col-md-5 border">
+   　<%= image_tag item.get_image(10,10) %><br>
+   　<%= item.name %><br>
+   　¥<%= item.price %>
+   　
+   　</div>
+   　<% end %>
+ </div>
+ 
+  </div>
+</div>
