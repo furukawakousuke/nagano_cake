@@ -2,16 +2,16 @@
 <div class="row">
 <div class="col-10 text-center">
 
-<h5 class="inline-block bg-light w-25 mt-5">管理者ログイン</h5>
+<h5 class="inline-block bg-light w-25 mt-4 mb-4">管理者ログイン</h5>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <label>メールアドレス</label>
+  <div class="field mb-3">
+    <label class="mr-3">メールアドレス</label>
     <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control form-control-sm col-5 d-inline-flex" %>
   </div>
 
-  <div class="field">
-    <label>パスワード</label>
+  <div class="field mb-4">
+    <label class="mr-5">パスワード</label>
     <%= f.password_field :password, autocomplete: "current-password",class:"form-control form-control-sm col-5 d-inline-flex" %>
   </div>
 
@@ -22,8 +22,8 @@
     </div>
   <% end %> -->
 
-  <div class="actions">
-    <%= f.submit "ログイン",class:"btn btn-info" %>
+  <div class="actions mr-5">
+    <%= f.submit "ログイン",class:"btn btn-primary px-4 mr-4" %>
   </div>
 <% end %>
 

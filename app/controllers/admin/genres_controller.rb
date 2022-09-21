@@ -10,11 +10,11 @@ class Admin::GenresController < ApplicationController
   @genre.save
   redirect_to '/admin/genres'
   
- end
+  end
  
  def edit
     @genre = Genre.find(params[:id])
-  end
+ end
   
   def update
     genre = Genre.find(params[:id])

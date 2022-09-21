@@ -1,5 +1,4 @@
 class Item < ApplicationRecord
-  has_one_attached :image
 
   belongs_to :genre
 
@@ -11,21 +10,23 @@ class Item < ApplicationRecord
         (self.price * 1.10).round
   end
 
+  has_one_attached :image
+  
+  
   def get_image
     if image.attached?
       image
     else
-      'no_image.jpg'
+      'no_image.png'
     end
-  end
+  end 
 
-  def get_image(width,height)
+  def get_image(height,width)
    unless image.attached?
      file_path = Rails.root.join('app/assets/images/no_image.png')
-     image.attach(io:File.open(file_path),filename: 'default-image.jpg',content_type: 'image/jpeg')
+     image.attach(io:File.open(file_path),filename: 'default-image.png',content_type: 'image/jpeg')
    end
-   image
+    image
   end
-
 
 end

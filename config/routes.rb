@@ -13,7 +13,6 @@ Rails.application.routes.draw do
     resources :customers,only:[:show,:edit]
     get 'customers/unsubscribe'
     resources :items,only:[:index,:show]
-    resources 
   end
   devise_for :admins,controllers: {
     sessions:"admin/sessions"
