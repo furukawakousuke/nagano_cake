@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   
   
-  namespace :public do
+  scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about'
     resources :addresses,only:[:index,:edit]
@@ -10,12 +10,15 @@ Rails.application.routes.draw do
     get 'orders/new'
     get 'orders/complete'
     resources :cart_items,only:[:index]
-    resources :customers,only:[:show,:edit]
+    get 'customers/mypage' => 'customers#show'
+    get 'customers/information/edit' => 'customers#edit'
+    patch 'customer_information' => 'customer#update'
     get 'customers/unsubscribe'
+    patch 'customers/withdrawal'
     resources :items,only:[:index,:show]
   end
-  devise_for :admins,controllers: {
-    sessions:"admin/sessions"
+  devise_for :admin,controllers: {
+    sessions: "admin/sessions"
   }
   namespace :admin do
     

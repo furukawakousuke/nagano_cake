@@ -7,7 +7,7 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field mb-3">
     <label class="mr-3">メールアドレス</label>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control form-control-sm col-5 d-inline-flex" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "name@example.com",class:"form-control form-control-sm col-5 d-inline-flex" %>
   </div>
 
   <div class="field mb-4">
@@ -23,7 +23,7 @@
   <% end %> -->
 
   <div class="actions mr-5">
-    <%= f.submit "ログイン",class:"btn btn-primary px-4 mr-4" %>
+    <%= f.submit "ログイン",class:"btn btn-primary btn-sm px-4 mr-4" %>
   </div>
 <% end %>
 
