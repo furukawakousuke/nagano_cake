@@ -1,2 +1,25 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+
+<div class="container">
+  <div class="row justify-content-top">
+    <div class="col-3 mt-5 float-left ">
+      <%= render 'layouts/genre', genres: @genres %>
+    </div>
+    <div class="col-2 mt-5 "><%= image_tag @item.get_image(100,100) %></div>
+    <div class="col-1"></div>
+    <div class="col-6 pt-4">
+    <h5 class="mt-5 font-weight-bold"><%= @item.name %></h5>
+    <%= @item.introduction %><br>
+   <div class="mt-5"><span class="h5">¥<%= @item.price.to_s(:delimited) %></span>(税込)</div>
+   <%= form_with model:@cart_item,url: cart_items_path,method: :post do |f| %>
+   <table>
+   <tr>
+     <%= f.hidden_field :item_id, value: @item.id %>
+     <td class="mr-3"><%= f.select :amount,(1..10),{include_blank: '個数選択'},{class: 'form-control form-sm mb-3 mr-3 mt-3'}  %></th>
+     <td class-"ml-3"><%=f.submit "カートに入れる",class:"btn btn-success btn-sm ml-5 font-weight-bold" %></th>
+   </tr>
+   </table>
+   <% end %>
+   
+</div>
+</div>
+</div>

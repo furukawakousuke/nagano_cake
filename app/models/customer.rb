@@ -6,9 +6,10 @@ class Customer < ApplicationRecord
          has_many :orders,dependent: :destroy
         
           
-         enum is_deleted: { "退会": true, "有効": false }
-  validates :is_deleted, inclusion: {in: ["有効", "退会"]}
-  
+          
+        has_many :addresses,dependent: :destroy
+        has_many :cart_items,dependent: :destroy
+
   
   
   

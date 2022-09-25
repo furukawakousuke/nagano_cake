@@ -1,10 +1,17 @@
-<div class="col-3 col-sm-auto">
-    <div class=""></div>
-    <div class="border border-dark px-3">
-    <h5 class="border-bottom font-weight-bold border-dark ">ジャンル検索</h5>
-    <% genres.each do |genre| %>
-    <div><%= genre.name %></div></br>
+   <div class="pb-5 d-flex">
+    
+    <table class="border pb-5">
+        <thead class="border-bottom">
+            <tr class="px-3 py-3">
+                <th class="px-4 py-2">ジャンル検索</th>
+            </tr>
+        </thead>
+        <% genres.each do |genre| %>
+        <tbody class="pb-5">
+            <tr>
+                <th class="px-4 py-2 "><%= genre.name %></th>
+            </tr>
     <% end %>
-    <div class="py-3"></div>
+        </tbody>
+    </table>
     </div>
-  </div>

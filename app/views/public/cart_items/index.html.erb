@@ -1,2 +1,41 @@
-<h1>Public::CartItems#index</h1>
-<p>Find me in app/views/public/cart_items/index.html.erb</p>
+<div class="container">
+  <div class="row ">
+  <div class="col-4"><h5 class="bg-light mt-4 d-inline-flex px-3">ショッピングカート</h5></div>
+  <div class="col-5"></div>
+  <div class="col-3"><%= link_to "カートを空にする",destroy_all_cart_items_path,method: :delete,confilm: "本当に退会しますか？",class:"btn btn-danger btn-sm mt-4" %>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <table class="border table-bordered mx-auto">
+        <thead>
+          <tr class="bg-light">
+            <th class="col-4 p-2">商品名</th>
+            <th class="col-2">単価(税込)</th>
+            <th class="col-2">数量</th>
+            <th class="col-2">小計</th>
+            <th class="col-2"></th>
+          </tr>
+        </thead>
+        <% @cart_items.each do |cart| %>
+        <tbody>
+          <tr>
+            <th class="p-2"><%= cart.item.name %></th>
+            <th><%= cart.item.with_tax_price.to_s(:delimited) %></th>
+            <th><%= cart.amount %></th>
+            <th><%= cart.subtotal.to_s(:delimited) %></th>
+            <th></th>
+            <% @total += cart.subtotal %>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <table class="border table-bordered mt-2 float-right p-2">
+        <tr class="p-2">
+          <th class="col-5 p-2">合計金額</th>
+          <th class="col-6"><%= @total.to_s(:delimited) %></th>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

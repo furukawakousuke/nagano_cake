@@ -4,14 +4,14 @@
       <h5 class="mt-4 text-center font-weight-bold">本当に退会しますか？</h5>
       <p class="mt-4">退会すると、登録情報や<br>
       これまでの購入履歴が閲覧できなくなります。<br>
-      退会する場合は、「退会する」をクリックしてください。</p> 
+      退会する場合は、「退会する」をクリックしてください。</p>
     </div>
   </div>
   <div class="row">
     <div class="col-4"></div>
     <div class="col-5">
       <%= link_to "退会しない", customers_mypage_path,class:"btn btn-primary ml- mr-5" %>
-      <%= link_to "退会する",customers_withdrawal_path,method: :patch,class:"btn btn-danger ml-5" %>
+      <%= link_to "退会する" , withdraw_path,method: :patch, data: { confilm: "本当に退会しますか？" },class:"btn btn-danger ml-5" %>
     </div>
   </div>
 </div>

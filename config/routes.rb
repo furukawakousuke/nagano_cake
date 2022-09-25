@@ -5,16 +5,21 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about'
-    resources :addresses,only:[:index,:edit]
+    resources :addresses,only:[:index,:edit,:create,:destroy,:update]
     resources :orders,only:[:index,:show]
     get 'orders/new'
     get 'orders/complete'
-    resources :cart_items,only:[:index]
+    resources :cart_items,only:[:index,:create,:update,:destroy]
+    resources :cart_items do
+  collection do
+    delete 'destroy_all'
+     end
+   end
     get 'customers/mypage' => 'customers#show'
     get 'customers/information/edit' => 'customers#edit'
-    patch 'customer_information' => 'customer#update'
+    patch 'customers/information' => 'customers#update'
     get 'customers/unsubscribe'
-    patch 'customers/withdrawal'
+    patch 'customers/withdraw' => 'customers#withdraw', as: 'withdraw'
     resources :items,only:[:index,:show]
   end
   devise_for :admin,controllers: {
