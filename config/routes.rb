@@ -3,9 +3,8 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get 'about' => 'homes#about'
     resources :addresses, only: [:index,:edit,:create,:destroy,:update]
-    resources :orders, only: [:index,:show]
-    get 'orders/new'
     get 'orders/complete'
+    resources :orders, only: [:index,:show,:create,:new]
     resources :cart_items, only: [:index,:create,:update,:destroy] do
       collection do
         delete 'destroy_all'
