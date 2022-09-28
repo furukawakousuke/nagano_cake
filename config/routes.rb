@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     get 'about' => 'homes#about'
     resources :addresses, only: [:index,:edit,:create,:destroy,:update]
     get 'orders/complete'
+    post 'orders/confirm'
     resources :orders, only: [:index,:show,:create,:new]
     resources :cart_items, only: [:index,:create,:update,:destroy] do
       collection do

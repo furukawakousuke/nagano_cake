@@ -14,7 +14,7 @@
    <table>
    <tr>
      <%= f.hidden_field :item_id, value: @item.id %>
-     <td class="mr-3"><%= f.select :amount,(1..10),{include_blank: '個数選択'},{class: 'form-control form-sm mb-3 mr-3 mt-3'}  %></th>
+     <td class="mr-3"><%= f.select :amount,(1..10),{},{class: 'form-control form-sm mb-3 mr-3 mt-3'}  %></th>
      <td class-"ml-3"><%=f.submit "カートに入れる",class:"btn btn-success btn-sm ml-5 font-weight-bold" %></th>
    </tr>
    </table>
