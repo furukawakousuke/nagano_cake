@@ -8,12 +8,19 @@ class Public::OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
+    
     @order.save
     redirect_to orders_confirm_path
   end
 
   def confirm
-    binding.pry
+    @total = 0
+    @orders = CartItem.all
+    @order = Order.new(order_params)
+    @address = Address.find(params[:order][:address_id])
+    @order.postal_code = @address.postal_code
+    @order.address = @address.address
+    @order.name = @address.name
   end
 
   def complete

@@ -12,7 +12,7 @@
       <label class="font-weight-bold">お届け先</label><br>
 
       <%= f.radio_button(:select_address,0,checked: true,class:"ml-3") %>
-      <%= f.label(:select_address, "ご自身の住所",class:"") %><br>
+      <%= f.label(:select_address, "ご自身の住所") %><br>
          <p class="ml-5 my-0 ">〒<%= @customer.postal_code %>　<%= @customer.address %></p>
          <p class="ml-5 "><%= @customer.full_name %></p>
 
