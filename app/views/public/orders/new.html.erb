@@ -11,17 +11,17 @@
 
       <label class="font-weight-bold">お届け先</label><br>
 
-      <%= f.radio_button(:select_address,0,checked: true,class:"ml-3") %>
+      <%= radio_button_tag(:select_address,0,checked: true,class:"ml-3") %>
       <%= f.label(:select_address, "ご自身の住所") %><br>
          <p class="ml-5 my-0 ">〒<%= @customer.postal_code %>　<%= @customer.address %></p>
          <p class="ml-5 "><%= @customer.full_name %></p>
 
-      <%= f.radio_button(:select_address,1,class:"ml-3") %>
+      <%= radio_button_tag(:select_address,1,class:"ml-3") %>
       <%= f.label(:select_address,"登録済みの住所から検索") %><br>
-      <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display),{},{class:"ml-5 w-50 mb-3"} %><br>
+      <%= f.select:address_id, options_from_collection_for_select(Address.all, :id, :address_display),{},{class:"ml-5 w-50 mb-3"} %><br>
 
 
-      <%= f.radio_button(:select_address,2,class:"ml-3") %>
+      <%= radio_button_tag(:select_address,2,class:"ml-3") %>
       <%= f.label(:selected_address,"新しいお届け先") %><br>
       <label class="ml-5">郵便番号(ハイフンなし)</label>
       <%= f.text_field :postal_code,placeholder: "0000000",class:"ml-1" %><br>
