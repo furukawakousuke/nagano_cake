@@ -1,2 +1,66 @@
-<h1>Public::Orders#show</h1>
-<p>Find me in app/views/public/orders/show.html.erb</p>
+<div class="container">
+  <h5 class="bg-light d-inline-flex px-4 my-4 ml-4">注文履歴詳細</h5>
+  <div class="row mx-auto">
+    <div class="col-6">
+      <label class="font-weight-bold">注文情報</label>
+      <table class="table-bordered w-100">
+        <tr>
+          <td class="p-2 bg-light">注文日</td>
+          <td style="width: 70%"><%= @order.updated_at.strftime('%Y/%m/%d') %></td>
+        </tr>
+        <tr>
+          <td class="p-2 bg-light">配送先</td>
+          <td><%= @order.postal_code %><br><%= @order.address %><br><%= @order.name %></td>
+        </tr>
+        <tr>
+          <td class="p-2 bg-light">支払方法</td>
+          <td><%= @order.payment_method_i18n %></td>
+        </tr>
+        <tr>
+          <td class="p-2 bg-light">ステータス</td>
+          <td><%= @order.status %></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="col-5">
+      <table class="table-bordered w-50">
+        <label class="font-weight-bold">請求情報</label>
+        <tr>
+          <td class="p-2 bg-light">商品合計</td>
+          <td class="pr-4 mr-3"><%= @order.total_payment - 800 %></td>
+        </tr>
+        <tr>
+          <td class="p-2 bg-light">送料</td>
+          <td><%= @order.shipping_cost %></td>
+        </tr>
+        <tr>
+          <td class="p-2 font-weight-bold bg-light">ご請求額</td>
+          <td><%= @order.total_payment %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row mt-3 pl-3">
+    <div class="col-md-9">
+      <label class="font-weight-bold">注文内容</label>
+      <table class="table-bordered w-75">
+        <thead class="bg-light">
+          <th style="width: 60%" class="p-2">商品</th>
+          <th>単価(税込)</th>
+          <th>個数</th>
+          <th>小計</th>
+        </thead>
+         <% @order.order_details.each do |order| %>
+        <tbody>
+          <td class="p-2"><%= order.item.name %></td>
+          <td><%= order.price %></td>
+          <td><%= order.amount %></td>
+          <td><%= order.price * order.amount %></td>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

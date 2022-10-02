@@ -12,13 +12,16 @@
         </thead>
         <% @orders.each do |order| %>
         <tbody class="border-bottom">
-          <td><%= order.updated_at %></td>
+          <td><%= link_to admin_order_path(order.id) do %>
+          <%= order.updated_at.strftime("%Y-%m-%d %H:%M:%S") %> <% end %></td>
           <td><%= order.name %></td>
-          <td><%= order.amount %></td>
+          <td><% order.order_details.each do |order_detail| %>
+            <%= order_detail.amount %> <% end %></td>
           <td><%= order.status %></td>
         </tbody>
+        <% end %>
       </table>
-      <% end %>
+
     </div>
     <div class="row">
         <div class="col-5"></div>

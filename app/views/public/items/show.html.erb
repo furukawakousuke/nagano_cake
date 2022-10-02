@@ -9,7 +9,7 @@
     <div class="col-6 pt-4">
     <h5 class="mt-5 font-weight-bold"><%= @item.name %></h5>
     <%= @item.introduction %><br>
-   <div class="mt-5"><span class="h5">¥<%= @item.price.to_s(:delimited) %></span>(税込)</div>
+   <div class="mt-5"><span class="h5">¥<%= @item.with_tax_price.to_s(:delimited) %></span>(税込)</div>
    <%= form_with model:@cart_item,url: cart_items_path,method: :post do |f| %>
    <table>
    <tr>
@@ -19,7 +19,7 @@
    </tr>
    </table>
    <% end %>
-   
+
 </div>
 </div>
 </div>
