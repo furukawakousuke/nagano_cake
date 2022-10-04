@@ -1,5 +1,5 @@
    <div class="pb-5 d-flex">
-    
+
     <table class="border pb-5">
         <thead class="border-bottom">
             <tr class="px-3 py-3">
@@ -9,7 +9,7 @@
         <% genres.each do |genre| %>
         <tbody class="pb-5">
             <tr>
-                <th class="px-4 py-2 "><%= genre.name %></th>
+                <td class="px-4 py-2 "><%= link_to genre.name,items_path(genre_id: genre.id) %></td>
             </tr>
     <% end %>
         </tbody>

@@ -31,7 +31,12 @@
   </div>
   <div class="field row ml-2 mb-3">
     <label class="col-3">会員ステータス</label>
-    <%= @guest.is_deleted  %>
+    <% @guest.is_deleted  %>
+     <% if @guest.is_deleted == false %>
+       <strong class="text-success">有効</strong>
+     <% else %>
+       <strong class="text-black-">退会</strong>
+     <% end %>
   </div>
   <div class="row ml-5">
     <div class="col-2 ml-4"></div>

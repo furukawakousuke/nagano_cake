@@ -23,10 +23,12 @@
    　<%= image_tag item.get_image(130,180),class:" d-flex align-baseline align-top" %><br>
    　<%= item.name %><br>
    　¥<%= item.price %>
-
+     
    　</div>
    　<% end %>
+   
  </div>
-
+　
   </div>
+  <%= link_to "全ての商品を見る >",items_path,class:"d-flex justify-content-end" %>
 </div>
