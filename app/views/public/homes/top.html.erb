@@ -1,34 +1,33 @@
 <div class="container">
-<div class="row mt-5">
- <div class="col-3">
- <%= render 'layouts/genre', genres: @genres %>
- </div>
- <div class="pl-5"></div>
- <div class="col-6 pt-3 mt-5">
-   <p class="border border-dark border-bold p-5">ようこそながのCAKEへ！<br>このサイトは、ケーキ販売のECサイトになります。<br>
-   会員だけでない方も商品の閲覧はできますが、<br>購入には会員登録が必要になります。</p>
-
+  <div class="row mt-5">
+   <div class="col-3">
+     <%= render 'layouts/genre', genres: @genres %>
    </div>
-</div>
-<div class="row">
-<div class="col-3"></div>
-<h5 class="font-weight-bold align-bottom">新着商品</h5>
-</div>
-   <div class="row align-items-start">
-   <div class="col-2">
+   <div class="col-9 pt-3 mt-5">
+     <p class="border border-dark border-bold py-5 text-center">ようこそながのCAKEへ！<br>このサイトは、ケーキ販売のECサイトになります。<br>
+     会員だけでない方も商品の閲覧はできますが、<br>購入には会員登録が必要になります。</p>
+    <h5 class="font-weight-bold align-bottom">新着商品</h5>
+
+      <div class="row">
+      <% @item.first(4).each do |item| %>
+        <div class="itembox col-3">
+         <table>
+           <tr class="p-1">
+             <th><%= link_to item_path(item.id) do %>
+              <%= image_tag item.get_image(130,180),:size => '130x180',class:" " %> 
+              <% end %></th>
+           </tr>
+           <tr>
+             <th><%= item.name %></th>
+           </tr>
+           <tr>
+             <th>¥<%= item.price %></th>
+           </tr>
+         </table>
+       　</div>
+         <% end %>
+       </div>
     </div>
-   　<div class="col-7 d-flex pb-4 align-items-start">
-   　<% @item.first(4).each do |item| %>
-   　<div class="col-md-5 ">
-   　<%= image_tag item.get_image(130,180),class:" d-flex align-baseline align-top" %><br>
-   　<%= item.name %><br>
-   　¥<%= item.price %>
-     
-   　</div>
-   　<% end %>
-   
- </div>
-　
   </div>
-  <%= link_to "全ての商品を見る >",items_path,class:"d-flex justify-content-end" %>
+<%= link_to "全ての商品を見る >",items_path,class:"d-flex justify-content-end" %>
 </div>

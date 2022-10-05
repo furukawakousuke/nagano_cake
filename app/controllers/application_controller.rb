@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :authenticate_customer!,except: [:top,:about,:index]
 
  before_action :configure_permitted_parameters, if: :devise_controller?
  
@@ -10,6 +11,8 @@ class ApplicationController < ActionController::Base
     def after_sign_in_path_for(resource)
       if customer_signed_in?
         customers_mypage_path(resource)
+      elsif admin_signed_in?
+        admin_root_path
       else
         admin_top_path
       end
@@ -17,8 +20,12 @@ class ApplicationController < ActionController::Base
 
     #ログアウト時のパスの変更
     def after_sign_out_path_for(resource)
-      root_path
+      new_admin_session_path
     end
+    
+    
+    
+    
 
     # 新規登録の保存機能
     def configure_permitted_parameters
