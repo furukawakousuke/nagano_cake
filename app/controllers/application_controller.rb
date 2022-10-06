@@ -1,16 +1,17 @@
 class ApplicationController < ActionController::Base
 
  before_action :configure_permitted_parameters, if: :devise_controller?
+
+
+
   protected
 
+    
     # ログイン時のパスを変更してる
-    def after_sign_in_path_for(resource)
-      if customer_signed_in?
-        root_path
-      else admin_signed_in?
-        admin_root_path
-      end
-    end
+    
+     
+
+
 
     #ログアウト時のパスの変更
     def after_sign_out_path_for(resource_or_scope)
@@ -33,7 +34,7 @@ class ApplicationController < ActionController::Base
 
       #sign_upの際にnameのデータ操作を許。追加したカラム。
   		devise_parameter_sanitizer.permit(:sign_in, keys: [:email])
-
+        
     end
 
 end
