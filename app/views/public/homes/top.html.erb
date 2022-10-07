@@ -9,7 +9,7 @@
     <h5 class="font-weight-bold align-bottom">新着商品</h5>
 
       <div class="row">
-      <% @item.first(4).each do |item| %>
+      <% @item.last(4).each do |item| %>
         <div class="itembox col-3">
          <table>
            <tr class="p-1">

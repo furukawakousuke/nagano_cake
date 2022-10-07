@@ -11,8 +11,8 @@
           <div class="itembox col-3">
             <table class="mr-0" style="table-layout:fixed;">
               <tr>
-                <td><%= link_to item_path(item.id) do %>
-                    <%= image_tag item.get_image(100,100) %>
+                <td class=""><%= link_to item_path(item.id) do %>
+                    <%= image_tag item.get_image(100,100),:size => '130x130' %>
                     <% end %></td>
               </tr>
               <tr>

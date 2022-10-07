@@ -6,10 +6,10 @@ class ApplicationController < ActionController::Base
 
   protected
 
-    
+
     # ログイン時のパスを変更してる
-    
-     
+
+
 
 
 
@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
       if resource_or_scope == :admin
         new_admin_session_path
       else
-        new_customer_session_path
+        root_path
       end
     end
 
@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
 
       #sign_upの際にnameのデータ操作を許。追加したカラム。
   		devise_parameter_sanitizer.permit(:sign_in, keys: [:email])
-        
+
     end
 
 end
