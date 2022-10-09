@@ -14,14 +14,14 @@
          <table>
            <tr class="p-1">
              <th><%= link_to item_path(item.id) do %>
-              <%= image_tag item.get_image(130,180),:size => '130x180',class:" " %> 
+              <%= image_tag item.get_image(130,180),:size => '130x180',class:" " %>
               <% end %></th>
            </tr>
            <tr>
              <th><%= item.name %></th>
            </tr>
            <tr>
-             <th>¥<%= item.price %></th>
+             <th>¥<%= (item.price * 1.1).floor %></th>
            </tr>
          </table>
        　</div>
